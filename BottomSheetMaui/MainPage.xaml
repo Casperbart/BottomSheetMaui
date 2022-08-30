@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BottomSheetMaui.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:BottomSheetMaui.Controls"
+    xmlns:viewmodels="clr-namespace:BottomSheetMaui.ViewModels"
+    BindingContext="MainPageViewModel">
+
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid HorizontalOptions="Center">
+                <Button
+                    Clicked="Button_ClickedAsync"
+                    Text="Tap Me!"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <controls:BottomSheet x:Name="Sheet" SheetHeight="450">
+                <controls:BottomSheet.SheetContent>
+                    <ScrollView>
+                        <StackLayout>
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                            <Label
+                                Margin="0,20"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Text="Cool Beans" />
+                        </StackLayout>
+
+
+                    </ScrollView>
+                </controls:BottomSheet.SheetContent>
+            </controls:BottomSheet>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

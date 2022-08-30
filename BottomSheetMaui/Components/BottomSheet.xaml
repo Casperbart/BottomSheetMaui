@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BottomSheetMaui.Controls.BottomSheet"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:BottomSheetMaui.Controls"
+    x:Name="BottomSheetRef"
+    x:DataType="controls:BottomSheet"
+    InputTransparent="False">
+
+    <ContentView.Content>
+        <Grid>
+
+            <BoxView
+                x:Name="Backdrop"
+                BackgroundColor="Black"
+                InputTransparent="True"
+                Opacity="0"
+                Color="Black">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+
+            <controls:PanContainer
+                x:Name="PanContainerRef"
+                HeightRequest="{Binding SheetHeight, Source={x:Reference BottomSheetRef}}"
+                VerticalOptions="End">
+                <controls:PanContainer.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                </controls:PanContainer.GestureRecognizers>
+
+                <Border
+                    x:Name="Sheet"
+                    Margin="-1"
+                    HeightRequest="{Binding SheetHeight, Source={x:Reference BottomSheetRef}}"
+                    Stroke="{AppThemeBinding Light={StaticResource White},
+                                             Dark={StaticResource Black}}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15, 15, 0, 0" />
+                    </Border.StrokeShape>
+
+                    <Border.Content>
+                        <StackLayout Spacing="10">
+                            <Border
+                                x:Name="Grabber"
+                                Margin="0,4,0,0"
+                                BackgroundColor="Gray"
+                                HeightRequest="8"
+                                HorizontalOptions="Center"
+                                Stroke="Gray"
+                                VerticalOptions="Start"
+                                WidthRequest="50">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="15" />
+                                </Border.StrokeShape>
+                            </Border>
+                            <Border
+                                Content="{Binding SheetContent, Source={x:Reference BottomSheetRef}}"
+                                HeightRequest="{Binding SheetHeight, Source={x:Reference BottomSheetRef}}"
+                                InputTransparent="False"
+                                StrokeThickness="0"
+                                VerticalOptions="End" />
+                        </StackLayout>
+                    </Border.Content>
+                </Border>
+            </controls:PanContainer>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>
